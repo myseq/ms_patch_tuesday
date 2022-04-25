@@ -14,7 +14,7 @@ Get vulnerability stats and updates.
 ```console
 $ ./patch_tuesday.py
 ```
-
+![./patch_tuesday.py](.github/patch_tuesday1.png)
 
 
 # References:
