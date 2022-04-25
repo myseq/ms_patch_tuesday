@@ -10,12 +10,18 @@ Microsoft Security Response Center (MSRC) investigates all reports of security v
 
 
 # Usage
-Get vulnerability stats and updates.
+Get quick summary of MS vulnerability stats for current month. 
 ```console
 $ ./patch_tuesday.py
 ```
 ![./patch_tuesday.py](.github/patch_tuesday1.png)
 
+## Tips
+Show quick summary with simple ASCII chart.
+```console
+$ ./patch_tuesday.py -vc
+```
+![./patch_tuesday.py -vc](.github/patch_tuesday2.png)
 
 # References:
 - [MSRC CVRF API](https://api.msrc.microsoft.com/cvrf/v2.0/swagger/index)
