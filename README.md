@@ -19,6 +19,7 @@ $ ./patch_tuesday.py
 
 # References:
 - [MSRC CVRF API](https://api.msrc.microsoft.com/cvrf/v2.0/swagger/index)
-- [MySeq Blog post]()
+- [Microsoft April 2022 Security Updates](https://myseq.blogspot.com/2022/04/microsoft-april-2022-security-updates.html)
+- [April 2002 Microsoft Security Updates](https://myseq.blogspot.com/2022/04/april-2002-microsoft-security-updates.html)
 
 
