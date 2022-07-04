@@ -19,9 +19,19 @@ $ ./patch_tuesday.py
 ## Tips
 Show quick summary with simple ASCII chart.
 ```console
-$ ./patch_tuesday.py -vc
+$ ./patch_tuesday.py -vc -k 2022-apr
 ```
 ![./patch_tuesday.py -vc](.github/patch_tuesday2.png)
+
+```console
+$ ./patch_tuesday -k 2022-may -v
+```
+![./patch_tuesday.py -vc](.github/2022-may.png)
+
+```console
+$ ./patch_tuesday -k 2022-jun -v
+```
+![./patch_tuesday.py -vc](.github/2022-jun.png)
 
 # References:
 - [MSRC CVRF API](https://api.msrc.microsoft.com/cvrf/v2.0/swagger/index)
