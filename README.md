@@ -21,17 +21,17 @@ Show quick summary with simple ASCII chart.
 ```console
 $ ./patch_tuesday.py -vc -k 2022-apr
 ```
-![./patch_tuesday.py -vc](.github/patch_tuesday2.png)
+![./patch_tuesday.py -vc -k 2022-apr](.github/patch_tuesday2.png)
 
 ```console
 $ ./patch_tuesday -k 2022-may -v
 ```
-![./patch_tuesday.py -vc](.github/2022-may.png)
+![./patch_tuesday.py -k 2022-may -v](.github/2022-may.png)
 
 ```console
 $ ./patch_tuesday -k 2022-jun -v
 ```
-![./patch_tuesday.py -vc](.github/2022-jun.png)
+![./patch_tuesday.py -k 2022-jun -v](.github/2022-jun.png)
 
 # References:
 - [MSRC CVRF API](https://api.msrc.microsoft.com/cvrf/v2.0/swagger/index)
