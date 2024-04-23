@@ -16,7 +16,7 @@ Microsoft Security Response Center (MSRC) investigates all reports of security v
 All the details from Microsoft security update are formatted according to the Common Vulnerability Reporting Framework (CVRF). 
 For more details, please visit [msrc.microsoft.com/update-guide](https://msrc.microsoft.com/update-guide).
 
-> CVRF stands for Common Vulnerability Reporting Framework.
+> ***CVRF*** *stands for `Common Vulnerability Reporting Framework`.*
 
 <!--
 # Usages
@@ -49,11 +49,11 @@ $ ./patch_tuesday -k 2022-jun -v
 
 <!-- show the help screen -->
 
-# Usages
+## Usages
 
 <!-- show a few usages -->
 
-# Updates:
+# History/Updates:
 
  - 2022.03 : ms_patch_tuesday_2.0
  - 2024.04 : ms_patch_tuesday_3.0
