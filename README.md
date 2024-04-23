@@ -1,15 +1,25 @@
-# MS Patch Tuesday (MSRFC - Security Update Guide)
-This is a simple tool (written python) to perfrom quick analysis on security updates for MS Patch Tuesday. It highlights:
-- Products Families
-- Vulnerability Types
-- High severity vulnerabities (>= CVSS 8.5)
-- High likelihood vulnerabilities (contains 'Exploitation More Likely') 
-- Vulnerabilties that exploited in wild (Exploited:Yes)
+# MS Patch Tuesday 
 
-Microsoft Security Response Center (MSRC) investigates all reports of security vulnerabilities affecting Microsoft products and services, and provides these updates as part of the ongoing effort to help you manage security risks and help keep your systems protected. All the details from Microsoft security update are formatted according to the Common Vulnerability Reporting Framework (CVRF). For more details, please visit msrc.microsoft.com/update-guide.
+`MS Patch Tuesday` is the second Tuesday of every month when Microsoft releases security updates to fix vulnerabilities in their software products.
 
+This is a simple script, written in Python, to perform quick analysis on security updates. 
+It quickly summarizes:
 
-# Usage
+ - Monthly MS patched product families.
+ - Monthly security updates.
+ - Any ***high severity*** vulnerabilities (CVSS >= 8.5).
+ - Any ***high likelihood*** vulnerabilities (contains 'Exploitation More Likely')
+ - Any vulnerability that ***exploited in wild*** (Exploited:yes)
+
+Microsoft Security Response Center (MSRC) investigates all reports of security vulnerabilities affecting Microsoft products and services, and provides these updates as part of the ongoing effort to help you manage security risks and help keep your systems protected. 
+
+All the details from Microsoft security update are formatted according to the Common Vulnerability Reporting Framework (CVRF). 
+For more details, please visit [msrc.microsoft.com/update-guide](https://msrc.microsoft.com/update-guide).
+
+> CVRF stands for Common Vulnerability Reporting Framework.
+
+<!--
+# Usages
 Get quick summary of MS vulnerability stats for current month. 
 ```console
 $ ./patch_tuesday.py
@@ -33,10 +43,30 @@ $ ./patch_tuesday -k 2022-jun -v
 ```
 ![./patch_tuesday.py -k 2022-jun -v](.github/2022-jun.png)
 
-# References:
-- [MSRC CVRF API](https://api.msrc.microsoft.com/cvrf/v2.0/swagger/index)
-- [Microsoft April 2022 Security Updates](https://myseq.blogspot.com/2022/04/microsoft-april-2022-security-updates.html)
-- [April 2002 Microsoft Security Updates](https://myseq.blogspot.com/2022/04/april-2002-microsoft-security-updates.html)
-- [MySeq - Patch_Tuesday Utils](https://myseq.blogspot.com/2022/07/patchtuesday-utils.html)
+-->
+
+# Feature
+
+<!-- show the help screen -->
+
+# Usages
+
+<!-- show a few usages -->
+
+# Updates:
+
+ - 2022.03 : ms_patch_tuesday_2.0
+ - 2024.04 : ms_patch_tuesday_3.0
+
+## CVRF API calls
+ 
+ - https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/
+ - https://api.msrc.microsoft.com/cvrf/v2.0/cvrf/
+
+# Links:
+
+ - [MSRC-Microsoft-Security-Updates-API](https://github.com/microsoft/MSRC-Microsoft-Security-Updates-API)
+ - [MSRC CVRF API v3](https://api.msrc.microsoft.com/cvrf/v3.0/swagger/v3/swagger.json)
+ - [MySeq - Patch_Tuesday Utils](https://myseq.blogspot.com/2022/07/patchtuesday-utils.html)
 
 
