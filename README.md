@@ -57,6 +57,16 @@ $ ./patch_tuesday.py -h
 
 <!-- show a few usages -->
 
+## Tips
+
+Use the `-j` option to download the JSON file.
+Then use `jq` utility to count the number of vulnerabilities released.
+
+```bash
+$ cat 2023_12.json | jq '.Vulnerability | length'
+51
+```
+
 # History/Updates:
 
  - 2022.03 : ms_patch_tuesday_2.0

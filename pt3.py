@@ -320,6 +320,8 @@ def saveJSON(filename):
     global data
 
     ic(filename)
+    with open (filename, 'w') as fh:
+        json.dump(data, fh, indent = 4)
 
 
 @timeit
@@ -436,14 +438,14 @@ def main():
         m = date_obj.month
         y = date_obj.year
         tuesday = find_patch_tuesday(m, y)
-        filename = f'{y}_{m}.json'
+        filename = f'{y}_{m:02}.json'
     else:
         m = date.today().month
         y = date.today().year
         tuesday = find_patch_tuesday(m, y)
         mmm = date.today().strftime("%h").lower()
         yyyy = date.today().year
-        filename = f'{y}_{m}.json'
+        filename = f'{y}_{m:02}.json'
 
     ic(tuesday)
 
