@@ -45,7 +45,17 @@ $ ./patch_tuesday -k 2022-jun -v
 
 -->
 
-# Feature
+# Features
+
+ 1. Show the total vulnerability count for the month.
+ 1. Show the number of `high severity` vulnerability count.
+ 1. Show the number of vulnerability which very likely to be exploited. 
+ 1. Show the number of vulnerability which exploited in wild.
+ 1. Show the product families that involve.
+ 1. Display the product familier as bar chart.
+ 1. Download the JSON file.
+
+Use `-h` to show the help screen:
 
 ```bash
 $ ./patch_tuesday.py -h
@@ -55,7 +65,61 @@ $ ./patch_tuesday.py -h
 
 ## Usages
 
-<!-- show a few usages -->
+1. Show quick summary.
+
+```bash
+$ ./patch_tuesday.py
+
+ _____     _       _      _____               _
+|  _  |___| |_ ___| |_   |_   _|_ _ ___ ___ _| |___ _ _
+|   __| .'|  _|  _|   |    | | | | | -_|_ -| . | .'| | |
+|__|  |__,|_| |___|_|_|    |_| |___|___|___|___|__,|_  |
+                                                   |___|
+
+ Microsoft Patch Tuesday - By MSRC
+===============================================
+ << April 2024 Security Updates [ 2024-04-09 ] >>
+
+
+ [+] Vulnerabilities           : [ 185 ]
+        [-] High_Severity      : [  49 ]
+        [-] High_likelihood    : [  13 ]
+        [-] Exploited in_wild  : [   1 ]
+ [+] Product Families          : [  10 ]
+
+
+ [*] [2024-04-23] main(): Completed within [7.3636 sec].
+
+```
+
+1. Show vulnerabilities and product families in verbose mode.
+
+```bash
+$ ./patch_tuesday.py -v
+```
+
+1. Show vulnerabilities and product families (as bar chart) in verbose mode.
+
+```bash
+$ ./patch_tuesday.py -vc
+```
+
+1. Download and save the JSON file (YYYY_MM.json).
+
+```bash
+$ ./patch_tuesday.py -j -k 2023-dec
+
+ _____     _       _      _____               _
+|  _  |___| |_ ___| |_   |_   _|_ _ ___ ___ _| |___ _ _
+|   __| .'|  _|  _|   |    | | | | | -_|_ -| . | .'| | |
+|__|  |__,|_| |___|_|_|    |_| |___|___|___|___|__,|_  |
+                                                   |___|
+
+ic| filename: '2023_12.json'
+
+
+ [*] [2024-04-23] main(): Completed within [3.0585 sec].
+```
 
 ## Tips
 

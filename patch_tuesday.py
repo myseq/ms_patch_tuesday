@@ -30,9 +30,9 @@ note = f'  [i][#8080FF]Get security updates from MSRC, formatted according to CV
 
 banner = f"""
    Zzzzz   |\      _,,,---,,_
-           /,`.-'`'    -.  ;-;;,_   __author__ : [ [#FFBF00]zd[/#FFBF00] ]
-          |,4-  ) )-,_..;\ (  `'-'  __year__   : [ [magenta]2024.04[/magenta] ]
-         '---''(_/--'  `-'\_)       __file__   : [ {__file__} ]
+           /,`.-'`'    -.  ;-;;,_   __author__ : [ [#FFBF00][i]zd[/i][/#FFBF00] ]
+          |,4-  ) )-,_..;\ (  `'-'  __year__   : [ [magenta][i]2024.04[/i][/magenta] ]
+         '---''(_/--'  `-'\_)       __file__   : [ [i]{__file__}[/i] ]
 
          [ {desc} ]
     """
