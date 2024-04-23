@@ -5,11 +5,11 @@
 This is a simple script, written in Python, to perform quick analysis on security updates. 
 It quickly summarizes:
 
- - Monthly MS patched product families.
  - Monthly security updates.
- - Any ***high severity*** vulnerabilities (CVSS >= 8.5).
- - Any ***high likelihood*** vulnerabilities (contains 'Exploitation More Likely')
- - Any vulnerability that ***exploited in wild*** (Exploited:yes)
+   - Any ***high severity*** vulnerabilities (CVSSi_Base >= 8.5).
+   - Any ***high likelihood*** vulnerabilities (contains 'Exploitation More Likely')
+   - Any vulnerability that ***exploited in wild*** (Exploited:yes)
+ - Monthly MS patched product families.
 
 Microsoft Security Response Center (MSRC) investigates all reports of security vulnerabilities affecting Microsoft products and services, and provides these updates as part of the ongoing effort to help you manage security risks and help keep your systems protected. 
 
@@ -47,10 +47,25 @@ $ ./patch_tuesday -k 2022-jun -v
 
 # Feature
 
-<!-- show the help screen -->
 ```bash
 $ ./patch_tuesday.py -h
+Usage: pt3.py [-h] [-c] [-j] [-k <YYYY-mmm>] [-v]
 
+   Zzzzz   |\      _,,,---,,_
+           /,`.-'`'    -.  ;-;;,_   __author__ : [ zd ]
+          |,4-  ) )-,_..;\ (  `'-'  __year__   : [ 2024.04 ]
+         '---''(_/--'  `-'\_)       __file__   : [ ./pt3.py ]
+
+         [ To get summary of product families and security updates from MSRC. ]
+
+Options:
+  -h, --help     show this help message and exit
+  -c             show chart output
+  -j             save the JSON file
+  -k <YYYY-mmm>  Date string for the report query in format YYYY-mmm: <2024-apr>
+  -v             verbose output
+
+  Get security updates from MSRC, formatted according to CVRF.
 ```
 
 ## Usages
