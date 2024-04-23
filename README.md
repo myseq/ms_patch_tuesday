@@ -48,6 +48,10 @@ $ ./patch_tuesday -k 2022-jun -v
 # Feature
 
 <!-- show the help screen -->
+```bash
+$ ./patch_tuesday.py -h
+
+```
 
 ## Usages
 

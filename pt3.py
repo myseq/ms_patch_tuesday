@@ -283,12 +283,6 @@ def main2():
 
     """
 
-
-
-
-
-
-
     critical = count_vulns(all_vulns, 'critical')
     print(f' [+] High_Severity         : [ {cy(critical["counter"]):>13s} ]')
     if g['verbose']:
@@ -320,6 +314,12 @@ def main2():
         print(f' [*] "{cb(doc_value)}" (Rev {doc_revision})')
         print(f'\t[-] Initial Release date: {cy(doc_initial)}')
         print(f'\t[-] Current Release date: {cy(doc_current)}')
+
+def saveJSON(filename):
+    """ Save the JSON file as YYYY_MM.json """
+    global data
+
+    ic(filename)
 
 
 @timeit
@@ -406,8 +406,8 @@ def usage():
     parser = argparse.ArgumentParser(description=banner, formatter_class=RawTextRichHelpFormatter, epilog=note)
 
     parser.add_argument('-c', action='store_true', help='show chart output')
-    parser.add_argument('-d', action='store_true', help='show chart output')
-    parser.add_argument('-k', dest='cvrf', metavar='<YYYY-mmm>', help="Date string for the report query in format YYYY-mmm <2024-apr>")
+    parser.add_argument('-j', action='store_true', help='save the JSON file')
+    parser.add_argument('-k', dest='cvrf', metavar='<YYYY-mmm>', help="Date string for the report query in format YYYY-mmm: <2024-apr>")
     parser.add_argument('-v', action='store_true', help='verbose output')
 
     return parser.parse_args()
@@ -427,6 +427,7 @@ def main():
     word = pyfiglet.figlet_format("Patch Tuesday", font="rectangles")
     rprint(f'[blue]{word}[/blue]')
     tuesday = "error"
+    filename = ''
 
     if args.cvrf:
         cvrf = args.cvrf
@@ -435,12 +436,14 @@ def main():
         m = date_obj.month
         y = date_obj.year
         tuesday = find_patch_tuesday(m, y)
+        filename = f'{y}_{m}.json'
     else:
         m = date.today().month
         y = date.today().year
         tuesday = find_patch_tuesday(m, y)
         mmm = date.today().strftime("%h").lower()
         yyyy = date.today().year
+        filename = f'{y}_{m}.json'
 
     ic(tuesday)
 
@@ -448,8 +451,9 @@ def main():
         return
     else:
         ic(len(data))
-        if args.d:
-            rprint(data)
+        if args.j:
+            #rprint(data)
+            saveJSON(filename)
         else:
             showChartSummary(tuesday)
 
