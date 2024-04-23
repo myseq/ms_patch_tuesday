@@ -65,7 +65,7 @@ $ ./patch_tuesday.py -h
 
 ## Usages
 
-1. Show quick summary.
+Show quick summary.
 
 ```bash
 $ ./patch_tuesday.py
@@ -92,19 +92,156 @@ $ ./patch_tuesday.py
 
 ```
 
-1. Show vulnerabilities and product families in verbose mode.
+Show vulnerabilities and product families in verbose mode.
 
 ```bash
-$ ./patch_tuesday.py -v
+$ ./patch_tuesday.py -v -k 2023-dec
+
+
+ _____     _       _      _____               _
+|  _  |___| |_ ___| |_   |_   _|_ _ ___ ___ _| |___ _ _
+|   __| .'|  _|  _|   |    | | | | | -_|_ -| . | .'| | |
+|__|  |__,|_| |___|_|_|    |_| |___|___|___|___|__,|_  |
+                                                   |___|
+
+
+ [*] Finish fetching [528,922 bytes] from https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2023-dec
+
+ Microsoft Patch Tuesday - By MSRC
+===============================================
+ << December 2023 Security Updates [ 2023-12-12 ] >>
+
+
+ [+] Vulnerabilities           : [  51 ]
+        [-] High_Severity      : [   6 ]
+        [-] High_likelihood    : [  11 ]
+        [-] Exploited in_wild  : [   0 ]
+ [+] Product Families          : [   8 ]
+
+                                                         High_Severity/6
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ CVE            ┃ CVSS_Base ┃ CVSS_Temporal ┃ Title_Value                                                                       ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ CVE-2023-35618 │    9.6    │      8.3      │ Microsoft Edge (Chromium-based) Elevation of Privilege Vulnerability              │
+│ CVE-2023-36019 │    9.6    │      8.3      │ Microsoft Power Platform Connector Spoofing Vulnerability                         │
+│ CVE-2023-36006 │    8.8    │      7.7      │ Microsoft WDAC OLE DB provider for SQL Server Remote Code Execution Vulnerability │
+│ CVE-2023-35639 │    8.8    │      7.7      │ Microsoft ODBC Driver Remote Code Execution Vulnerability                         │
+│ CVE-2023-35641 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability             │
+│ CVE-2023-35630 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability             │
+└────────────────┴───────────┴───────────────┴───────────────────────────────────────────────────────────────────────────────────┘
+
+                                                        High_Likelihood/11
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ CVE            ┃ CVSS_Base ┃ CVSS_Temporal ┃ Title_Value                                                                        ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ CVE-2023-36696 │    7.8    │      6.8      │ Windows Cloud Files Mini Filter Driver Elevation of Privilege Vulnerability        │
+│ CVE-2023-36391 │    7.8    │      6.8      │ Local Security Authority Subsystem Service Elevation of Privilege Vulnerability    │
+│ CVE-2023-36011 │    7.8    │      6.8      │ Win32k Elevation of Privilege Vulnerability                                        │
+│ CVE-2023-36010 │    7.5    │      6.5      │ Microsoft Defender Denial of Service Vulnerability                                 │
+│ CVE-2023-36005 │    7.5    │      6.5      │ Windows Telephony Server Elevation of Privilege Vulnerability                      │
+│ CVE-2023-35641 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability              │
+│ CVE-2023-35644 │    7.8    │      6.8      │ Windows Sysmain Service Elevation of Privilege                                     │
+│ CVE-2023-35628 │    8.1    │      7.1      │ Windows MSHTML Platform Remote Code Execution Vulnerability                        │
+│ CVE-2023-35631 │    7.8    │      6.8      │ Win32k Elevation of Privilege Vulnerability                                        │
+│ CVE-2023-35632 │    7.8    │      6.8      │ Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability │
+│ CVE-2023-35633 │    7.8    │      6.8      │ Windows Kernel Elevation of Privilege Vulnerability                                │
+└────────────────┴───────────┴───────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+
+
+ [+] Product Families (8)
+        [ 1]              Windows : 26
+        [ 2]                  ESU : 10
+        [ 3]     Microsoft Office : 9
+        [ 4]   Microsoft Dynamics : 6
+        [ 5]                Azure : 4
+        [ 6]              Browser : 1
+        [ 7]      Developer Tools : 1
+        [ 8]        System Center : 1
+
+ [*] "December 2023 Security Updates" (Rev 12)
+        [-] Initial Release date: 2023-12-12T08:00:00
+        [-] Current Release date: 2024-02-16T08:00:00
+
+
+ [*] [2024-04-23] main(): Completed within [2.8933 sec].
+
 ```
 
-1. Show vulnerabilities and product families (as bar chart) in verbose mode.
+Show vulnerabilities and product families (as bar chart) in verbose mode.
 
 ```bash
-$ ./patch_tuesday.py -vc
+$ ./patch_tuesday.py -vc -k 2023-dec
+
+ _____     _       _      _____               _
+|  _  |___| |_ ___| |_   |_   _|_ _ ___ ___ _| |___ _ _
+|   __| .'|  _|  _|   |    | | | | | -_|_ -| . | .'| | |
+|__|  |__,|_| |___|_|_|    |_| |___|___|___|___|__,|_  |
+                                                   |___|
+
+
+ [*] Finish fetching [528,922 bytes] from https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2023-dec
+
+ Microsoft Patch Tuesday - By MSRC
+===============================================
+ << December 2023 Security Updates [ 2023-12-12 ] >>
+
+
+ [+] Vulnerabilities           : [  51 ]
+        [-] High_Severity      : [   6 ]
+        [-] High_likelihood    : [  11 ]
+        [-] Exploited in_wild  : [   0 ]
+ [+] Product Families          : [   8 ]
+
+                                                         High_Severity/6
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ CVE            ┃ CVSS_Base ┃ CVSS_Temporal ┃ Title_Value                                                                       ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ CVE-2023-35618 │    9.6    │      8.3      │ Microsoft Edge (Chromium-based) Elevation of Privilege Vulnerability              │
+│ CVE-2023-36019 │    9.6    │      8.3      │ Microsoft Power Platform Connector Spoofing Vulnerability                         │
+│ CVE-2023-36006 │    8.8    │      7.7      │ Microsoft WDAC OLE DB provider for SQL Server Remote Code Execution Vulnerability │
+│ CVE-2023-35639 │    8.8    │      7.7      │ Microsoft ODBC Driver Remote Code Execution Vulnerability                         │
+│ CVE-2023-35641 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability             │
+│ CVE-2023-35630 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability             │
+└────────────────┴───────────┴───────────────┴───────────────────────────────────────────────────────────────────────────────────┘
+
+                                                        High_Likelihood/11
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ CVE            ┃ CVSS_Base ┃ CVSS_Temporal ┃ Title_Value                                                                        ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ CVE-2023-36696 │    7.8    │      6.8      │ Windows Cloud Files Mini Filter Driver Elevation of Privilege Vulnerability        │
+│ CVE-2023-36391 │    7.8    │      6.8      │ Local Security Authority Subsystem Service Elevation of Privilege Vulnerability    │
+│ CVE-2023-36011 │    7.8    │      6.8      │ Win32k Elevation of Privilege Vulnerability                                        │
+│ CVE-2023-36010 │    7.5    │      6.5      │ Microsoft Defender Denial of Service Vulnerability                                 │
+│ CVE-2023-36005 │    7.5    │      6.5      │ Windows Telephony Server Elevation of Privilege Vulnerability                      │
+│ CVE-2023-35641 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability              │
+│ CVE-2023-35644 │    7.8    │      6.8      │ Windows Sysmain Service Elevation of Privilege                                     │
+│ CVE-2023-35628 │    8.1    │      7.1      │ Windows MSHTML Platform Remote Code Execution Vulnerability                        │
+│ CVE-2023-35631 │    7.8    │      6.8      │ Win32k Elevation of Privilege Vulnerability                                        │
+│ CVE-2023-35632 │    7.8    │      6.8      │ Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability │
+│ CVE-2023-35633 │    7.8    │      6.8      │ Windows Kernel Elevation of Privilege Vulnerability                                │
+└────────────────┴───────────┴───────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+
+
+ [+] Product Families (8)
+                       Windows ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 26
+                           ESU ▇▇▇▇▇▇▇▇▇ 10
+              Microsoft Office ▇▇▇▇▇▇▇▇ 9
+            Microsoft Dynamics ▇▇▇▇▇ 6
+                         Azure ▇▇▇ 4
+                       Browser ▇ 1
+               Developer Tools ▇ 1
+                 System Center ▇ 1
+
+ [*] "December 2023 Security Updates" (Rev 12)
+        [-] Initial Release date: 2023-12-12T08:00:00
+        [-] Current Release date: 2024-02-16T08:00:00
+
+
+ [*] [2024-04-23] main(): Completed within [2.8670 sec].
+
 ```
 
-1. Download and save the JSON file (YYYY_MM.json).
+Download and save the JSON file (YYYY_MM.json).
 
 ```bash
 $ ./patch_tuesday.py -j -k 2023-dec
