@@ -49,11 +49,11 @@ $ ./patch_tuesday -k 2022-jun -v
 
  1. Show the total vulnerability count for the month.
  1. Show the number of `high severity` vulnerability count.
- 1. Show the number of vulnerability which very likely to be exploited. 
- 1. Show the number of vulnerability which exploited in wild.
- 1. Show the product families that involve.
- 1. Display the product familier as bar chart.
- 1. Download the JSON file.
+ 1. Show the number of vulnerability which `very likely to be exploited`. 
+ 1. Show the number of vulnerability which already `exploited in wild`.
+ 1. Show the `product families` that involve.
+ 1. Display the product familier as `bar chart`.
+ 1. Download the `JSON` file.
 
 Use `-h` to show the help screen:
 
