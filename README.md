@@ -18,34 +18,22 @@ For more details, please visit [msrc.microsoft.com/update-guide](https://msrc.mi
 
 > ***CVRF*** *stands for `Common Vulnerability Reporting Framework`.*
 
-<!--
-# Usages
-Get quick summary of MS vulnerability stats for current month. 
-```console
-$ ./patch_tuesday.py
+## Setup (Installation)
+
+```bash
+$ git clone https://github.com/myseq/ms_patch_tuesday.git
+$ cd ms_patch_tuesday
+$ python3 -m venv .venv
+$ source .venv/bin/activate 
+$ pip3 install -r requirements.txt
+$ ./patch_tuesday.py -h
+$
+$ deactivate
 ```
-![./patch_tuesday.py](.github/patch_tuesday1.png)
 
-## Tips
-Show quick summary with simple ASCII chart.
-```console
-$ ./patch_tuesday.py -vc -k 2022-apr
-```
-![./patch_tuesday.py -vc -k 2022-apr](.github/patch_tuesday2.png)
+![./patch_tuesday.py -h](images/pt3_help.png)
 
-```console
-$ ./patch_tuesday -k 2022-may -v
-```
-![./patch_tuesday.py -k 2022-may -v](.github/2022-may.png)
-
-```console
-$ ./patch_tuesday -k 2022-jun -v
-```
-![./patch_tuesday.py -k 2022-jun -v](.github/2022-jun.png)
-
--->
-
-# Features
+## Features
 
  1. Show the total vulnerability count for the month.
  1. Show the number of `high severity` vulnerability count.
@@ -54,14 +42,6 @@ $ ./patch_tuesday -k 2022-jun -v
  1. Show the `product families` that involve.
  1. Display the product familier as `bar chart`.
  1. Download the `JSON` file.
-
-Use `-h` to show the help screen:
-
-```bash
-$ ./patch_tuesday.py -h
-```
-
-![./patch_tuesday.py -h](images/pt3_help.png)
 
 ## Usages
 
