@@ -226,7 +226,7 @@ def showChartSummary(tuesday):
             table.add_column('CVSS_Temporal', justify='center', style='magenta')
             table.add_column('Title_Value')
             for cve in d['cves']:
-                cv,vv,pv,tv = cve.split(' - ', 3)
+                cv,vv,pv,tv = cve.split(' - ')
                 table.add_row(cv,vv,pv,tv)
             console = Console()
             console.print(table)
