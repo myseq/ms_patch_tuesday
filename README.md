@@ -58,24 +58,25 @@ $ ./patch_tuesday.py
 
  Microsoft Patch Tuesday - By MSRC
 ===============================================
- << April 2024 Security Updates [ 2024-04-09 ] >>
+ << August 2024 Security Updates [ 2024-08-13 ] >>
 
 
- [+] Vulnerabilities           : [ 185 ]
-        [-] High_Severity      : [  49 ]
-        [-] High_likelihood    : [  13 ]
-        [-] Exploited in_wild  : [   1 ]
- [+] Product Families          : [  10 ]
+ [+] Vulnerabilities           : [ 102 ]
+        [-] High_Severity      : [  21 ]
+        [-] High_likelihood    : [  11 ]
+        [-] Exploited in_wild  : [   6 ]
+        [-] Action_required    : [  99 ]
+        [-] Found in CISA_KEV  : [   6 ]
 
 
- [*] [2024-04-23] main(): Completed within [7.3636 sec].
+ [*] [2024-08-19] main(): Completed within [8.9630 sec].
 
 ```
 
 Show vulnerabilities and product families in verbose mode.
 
 ```bash
-$ ./patch_tuesday.py -v -k 2023-dec
+$ ./patch_tuesday.py -v -k 2024-may
 
 
  _____     _       _      _____               _
@@ -85,72 +86,88 @@ $ ./patch_tuesday.py -v -k 2023-dec
                                                    |___|
 
 
- [*] Finish fetching [528,922 bytes] from https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2023-dec
+ [*] Finish fetching [1,215,882 bytes] from https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2024-may
+
+
+ [*] CISA Catalog of Known Exploited Vulnerabilities [ 2024.08.15/1150 ]
+
 
  Microsoft Patch Tuesday - By MSRC
 ===============================================
- << December 2023 Security Updates [ 2023-12-12 ] >>
+ << May 2024 Security Updates [ 2024-05-14 ] >>
 
 
- [+] Vulnerabilities           : [  51 ]
-        [-] High_Severity      : [   6 ]
-        [-] High_likelihood    : [  11 ]
-        [-] Exploited in_wild  : [   0 ]
- [+] Product Families          : [   8 ]
+ [+] Vulnerabilities           : [  79 ]
+        [-] High_Severity      : [   7 ]
+        [-] High_likelihood    : [  10 ]
+        [-] Exploited in_wild  : [   2 ]
+        [-] Action_required    : [  79 ]
+        [-] Found in CISA_KEV  : [   6 ]
 
-                                                         High_Severity/6
-┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ CVE            ┃ CVSS_Base ┃ CVSS_Temporal ┃ Title_Value                                                                       ┃
-┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ CVE-2023-35618 │    9.6    │      8.3      │ Microsoft Edge (Chromium-based) Elevation of Privilege Vulnerability              │
-│ CVE-2023-36019 │    9.6    │      8.3      │ Microsoft Power Platform Connector Spoofing Vulnerability                         │
-│ CVE-2023-36006 │    8.8    │      7.7      │ Microsoft WDAC OLE DB provider for SQL Server Remote Code Execution Vulnerability │
-│ CVE-2023-35639 │    8.8    │      7.7      │ Microsoft ODBC Driver Remote Code Execution Vulnerability                         │
-│ CVE-2023-35641 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability             │
-│ CVE-2023-35630 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability             │
-└────────────────┴───────────┴───────────────┴───────────────────────────────────────────────────────────────────────────────────┘
+                                                           High_Severity/7
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ CVE            ┃ CVSS_Base/Temp  ┃ Title_Value                                                                                     ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ CVE-2024-32002 │   B:9.0/T:7.8   │ GitHub:  CVE-2024-32002 Recursive clones on case-insensitive filesystems that support symlinks  │
+│                │                 │ are susceptible to Remote Code Execution                                                        │
+│ CVE-2024-30006 │   B:8.8/T:7.7   │ Microsoft WDAC OLE DB provider for SQL Server Remote Code Execution Vulnerability               │
+│ CVE-2024-30007 │   B:8.8/T:7.7   │ Microsoft Brokering File System Elevation of Privilege Vulnerability                            │
+│ CVE-2024-30009 │   B:8.8/T:7.7   │ Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability            │
+│ CVE-2024-30010 │   B:8.8/T:7.7   │ Windows Hyper-V Remote Code Execution Vulnerability                                             │
+│ CVE-2024-30017 │   B:8.8/T:7.7   │ Windows Hyper-V Remote Code Execution Vulnerability                                             │
+│ CVE-2024-30040 │ B:8.8/T:8.2 [K] │ Windows MSHTML Platform Security Feature Bypass Vulnerability                                   │
+└────────────────┴─────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────┘
 
-                                                        High_Likelihood/11
-┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ CVE            ┃ CVSS_Base ┃ CVSS_Temporal ┃ Title_Value                                                                        ┃
-┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ CVE-2023-36696 │    7.8    │      6.8      │ Windows Cloud Files Mini Filter Driver Elevation of Privilege Vulnerability        │
-│ CVE-2023-36391 │    7.8    │      6.8      │ Local Security Authority Subsystem Service Elevation of Privilege Vulnerability    │
-│ CVE-2023-36011 │    7.8    │      6.8      │ Win32k Elevation of Privilege Vulnerability                                        │
-│ CVE-2023-36010 │    7.5    │      6.5      │ Microsoft Defender Denial of Service Vulnerability                                 │
-│ CVE-2023-36005 │    7.5    │      6.5      │ Windows Telephony Server Elevation of Privilege Vulnerability                      │
-│ CVE-2023-35641 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability              │
-│ CVE-2023-35644 │    7.8    │      6.8      │ Windows Sysmain Service Elevation of Privilege                                     │
-│ CVE-2023-35628 │    8.1    │      7.1      │ Windows MSHTML Platform Remote Code Execution Vulnerability                        │
-│ CVE-2023-35631 │    7.8    │      6.8      │ Win32k Elevation of Privilege Vulnerability                                        │
-│ CVE-2023-35632 │    7.8    │      6.8      │ Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability │
-│ CVE-2023-35633 │    7.8    │      6.8      │ Windows Kernel Elevation of Privilege Vulnerability                                │
-└────────────────┴───────────┴───────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+                                               High_Likelihood/10
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ CVE            ┃ CVSS_Base/Temp ┃ Title_Value                                                                 ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ CVE-2024-29996 │  B:7.8/T:6.8   │ Windows Common Log File System Driver Elevation of Privilege Vulnerability  │
+│ CVE-2024-30044 │  B:7.2/T:6.3   │ Microsoft SharePoint Server Remote Code Execution Vulnerability             │
+│ CVE-2024-30050 │  B:5.4/T:5.0   │ Windows Mark of the Web Security Feature Bypass Vulnerability               │
+│ CVE-2024-30025 │  B:7.8/T:6.8   │ Windows Common Log File System Driver Elevation of Privilege Vulnerability  │
+│ CVE-2024-30032 │  B:7.8/T:6.8   │ Windows DWM Core Library Elevation of Privilege Vulnerability               │
+│ CVE-2024-30034 │  B:5.5/T:4.8   │ Windows Cloud Files Mini Filter Driver Information Disclosure Vulnerability │
+│ CVE-2024-30035 │  B:7.8/T:6.8   │ Windows DWM Core Library Elevation of Privilege Vulnerability               │
+│ CVE-2024-30037 │  B:5.5/T:4.8   │ Windows Common Log File System Driver Elevation of Privilege Vulnerability  │
+│ CVE-2024-30038 │  B:7.8/T:6.8   │ Win32k Elevation of Privilege Vulnerability                                 │
+│ CVE-2024-30049 │  B:7.8/T:6.8   │ Windows Win32 Kernel Subsystem Elevation of Privilege Vulnerability         │
+└────────────────┴────────────────┴─────────────────────────────────────────────────────────────────────────────┘
+
+                                        Exploited_in_Wild/2
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ CVE            ┃ CVSS_Base/Temp  ┃ Title_Value                                                   ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ CVE-2024-30040 │ B:8.8/T:8.2 [K] │ Windows MSHTML Platform Security Feature Bypass Vulnerability │
+│ CVE-2024-30051 │ B:7.8/T:7.2 [K] │ Windows DWM Core Library Elevation of Privilege Vulnerability │
+└────────────────┴─────────────────┴───────────────────────────────────────────────────────────────┘
 
 
- [+] Product Families (8)
+ [+] Product Families (10)
         [ 1]              Windows : 26
-        [ 2]                  ESU : 10
-        [ 3]     Microsoft Office : 9
-        [ 4]   Microsoft Dynamics : 6
-        [ 5]                Azure : 4
-        [ 6]              Browser : 1
-        [ 7]      Developer Tools : 1
-        [ 8]        System Center : 1
+        [ 2]     Microsoft Office : 13
+        [ 3]                  ESU : 10
+        [ 4]      Developer Tools : 9
+        [ 5]                Azure : 2
+        [ 6]                 Apps : 2
+        [ 7]              Mariner : 2
+        [ 8]              Browser : 1
+        [ 9]   Microsoft Dynamics : 1
+        [10]           SQL Server : 1
 
- [*] "December 2023 Security Updates" (Rev 12)
-        [-] Initial Release date: 2023-12-12T08:00:00
-        [-] Current Release date: 2024-02-16T08:00:00
+ [*] "May 2024 Security Updates" (Rev 25)
+        [-] Initial Release date: 2024-05-14T07:00:00
+        [-] Current Release date: 2024-06-19T07:00:00
 
 
- [*] [2024-04-23] main(): Completed within [2.8933 sec].
+ [*] [2024-08-19] main(): Completed within [4.8891 sec].
 
 ```
 
 Show vulnerabilities and product families (as bar chart) in verbose mode.
 
 ```bash
-$ ./patch_tuesday.py -vc -k 2023-dec
+$ ./patch_tuesday.py -vc -k 2024-jun
 
  _____     _       _      _____               _
 |  _  |___| |_ ___| |_   |_   _|_ _ ___ ___ _| |___ _ _
@@ -159,65 +176,72 @@ $ ./patch_tuesday.py -vc -k 2023-dec
                                                    |___|
 
 
- [*] Finish fetching [528,922 bytes] from https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2023-dec
+ [*] Finish fetching [3,472,243 bytes] from https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2024-jun
+
+
+ [*] CISA Catalog of Known Exploited Vulnerabilities [ 2024.08.15/1150 ]
+
 
  Microsoft Patch Tuesday - By MSRC
 ===============================================
- << December 2023 Security Updates [ 2023-12-12 ] >>
+ << June 2024 Security Updates [ 2024-06-11 ] >>
 
 
- [+] Vulnerabilities           : [  51 ]
-        [-] High_Severity      : [   6 ]
-        [-] High_likelihood    : [  11 ]
+ [+] Vulnerabilities           : [  91 ]
+        [-] High_Severity      : [   7 ]
+        [-] High_likelihood    : [  12 ]
         [-] Exploited in_wild  : [   0 ]
- [+] Product Families          : [   8 ]
+        [-] Action_required    : [  90 ]
+        [-] Found in CISA_KEV  : [   0 ]
 
-                                                         High_Severity/6
-┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ CVE            ┃ CVSS_Base ┃ CVSS_Temporal ┃ Title_Value                                                                       ┃
-┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ CVE-2023-35618 │    9.6    │      8.3      │ Microsoft Edge (Chromium-based) Elevation of Privilege Vulnerability              │
-│ CVE-2023-36019 │    9.6    │      8.3      │ Microsoft Power Platform Connector Spoofing Vulnerability                         │
-│ CVE-2023-36006 │    8.8    │      7.7      │ Microsoft WDAC OLE DB provider for SQL Server Remote Code Execution Vulnerability │
-│ CVE-2023-35639 │    8.8    │      7.7      │ Microsoft ODBC Driver Remote Code Execution Vulnerability                         │
-│ CVE-2023-35641 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability             │
-│ CVE-2023-35630 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability             │
-└────────────────┴───────────┴───────────────┴───────────────────────────────────────────────────────────────────────────────────┘
+                                                          High_Severity/7
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ CVE            ┃ CVSS_Base/Temp ┃ Title_Value                                                                                   ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ CVE-2024-30078 │  B:8.8/T:7.7   │ Windows Wi-Fi Driver Remote Code Execution Vulnerability                                      │
+│ CVE-2024-30080 │  B:9.8/T:8.5   │ Microsoft Message Queuing (MSMQ) Remote Code Execution Vulnerability                          │
+│ CVE-2024-30064 │  B:8.8/T:7.7   │ Windows Kernel Elevation of Privilege Vulnerability                                           │
+│ CVE-2024-30068 │  B:8.8/T:7.7   │ Windows Kernel Elevation of Privilege Vulnerability                                           │
+│ CVE-2024-30097 │  B:8.8/T:7.7   │ Microsoft Speech Application Programming Interface (SAPI) Remote Code Execution Vulnerability │
+│ CVE-2024-30103 │  B:8.8/T:7.7   │ Microsoft Outlook Remote Code Execution Vulnerability                                         │
+│ CVE-2024-35249 │  B:8.8/T:7.7   │ Microsoft Dynamics 365 Business Central Remote Code Execution Vulnerability                   │
+└────────────────┴────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────┘
 
-                                                        High_Likelihood/11
-┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ CVE            ┃ CVSS_Base ┃ CVSS_Temporal ┃ Title_Value                                                                        ┃
-┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ CVE-2023-36696 │    7.8    │      6.8      │ Windows Cloud Files Mini Filter Driver Elevation of Privilege Vulnerability        │
-│ CVE-2023-36391 │    7.8    │      6.8      │ Local Security Authority Subsystem Service Elevation of Privilege Vulnerability    │
-│ CVE-2023-36011 │    7.8    │      6.8      │ Win32k Elevation of Privilege Vulnerability                                        │
-│ CVE-2023-36010 │    7.5    │      6.5      │ Microsoft Defender Denial of Service Vulnerability                                 │
-│ CVE-2023-36005 │    7.5    │      6.5      │ Windows Telephony Server Elevation of Privilege Vulnerability                      │
-│ CVE-2023-35641 │    8.8    │      7.7      │ Internet Connection Sharing (ICS) Remote Code Execution Vulnerability              │
-│ CVE-2023-35644 │    7.8    │      6.8      │ Windows Sysmain Service Elevation of Privilege                                     │
-│ CVE-2023-35628 │    8.1    │      7.1      │ Windows MSHTML Platform Remote Code Execution Vulnerability                        │
-│ CVE-2023-35631 │    7.8    │      6.8      │ Win32k Elevation of Privilege Vulnerability                                        │
-│ CVE-2023-35632 │    7.8    │      6.8      │ Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability │
-│ CVE-2023-35633 │    7.8    │      6.8      │ Windows Kernel Elevation of Privilege Vulnerability                                │
-└────────────────┴───────────┴───────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+                                               High_Likelihood/12
+┏━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ CVE            ┃ CVSS_Base/Temp ┃ Title_Value                                                                 ┃
+┡━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ CVE-2024-30080 │  B:9.8/T:8.5   │ Microsoft Message Queuing (MSMQ) Remote Code Execution Vulnerability        │
+│ CVE-2024-30082 │  B:7.8/T:6.8   │ Win32k Elevation of Privilege Vulnerability                                 │
+│ CVE-2024-35250 │  B:7.8/T:6.8   │ Windows Kernel-Mode Driver Elevation of Privilege Vulnerability             │
+│ CVE-2024-35260 │  B:8.0/T:7.0   │ Microsoft Dataverse Remote Code Execution Vulnerability                     │
+│ CVE-2024-30084 │  B:7.0/T:6.1   │ Windows Kernel-Mode Driver Elevation of Privilege Vulnerability             │
+│ CVE-2024-30085 │  B:7.8/T:7.0   │ Windows Cloud Files Mini Filter Driver Elevation of Privilege Vulnerability │
+│ CVE-2024-30086 │  B:7.8/T:6.8   │ Windows Win32 Kernel Subsystem Elevation of Privilege Vulnerability         │
+│ CVE-2024-30087 │  B:7.8/T:6.8   │ Win32k Elevation of Privilege Vulnerability                                 │
+│ CVE-2024-30088 │  B:7.0/T:6.3   │ Windows Kernel Elevation of Privilege Vulnerability                         │
+│ CVE-2024-30089 │  B:7.8/T:6.8   │ Microsoft Streaming Service Elevation of Privilege Vulnerability            │
+│ CVE-2024-30091 │  B:7.8/T:7.0   │ Win32k Elevation of Privilege Vulnerability                                 │
+│ CVE-2024-30099 │  B:7.0/T:6.3   │ Windows Kernel Elevation of Privilege Vulnerability                         │
+└────────────────┴────────────────┴─────────────────────────────────────────────────────────────────────────────┘
 
 
  [+] Product Families (8)
-                       Windows ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 26
-                           ESU ▇▇▇▇▇▇▇▇▇ 10
-              Microsoft Office ▇▇▇▇▇▇▇▇ 9
-            Microsoft Dynamics ▇▇▇▇▇ 6
-                         Azure ▇▇▇ 4
-                       Browser ▇ 1
-               Developer Tools ▇ 1
-                 System Center ▇ 1
+                       Windows ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 26
+                         Azure ▇▇▇▇▇▇▇▇▇ 15
+              Microsoft Office ▇▇▇▇▇▇▇▇ 13
+                           ESU ▇▇▇▇▇▇ 10
+               Developer Tools ▇▇▇▇ 6
+                       Mariner ▇▇▇▇ 6
+            Microsoft Dynamics ▇▇▇ 5
+                       Browser ▇▇ 3
 
- [*] "December 2023 Security Updates" (Rev 12)
-        [-] Initial Release date: 2023-12-12T08:00:00
-        [-] Current Release date: 2024-02-16T08:00:00
+ [*] "June 2024 Security Updates" (Rev 181)
+        [-] Initial Release date: 2024-06-11T07:00:00
+        [-] Current Release date: 2024-08-13T07:00:00
 
 
- [*] [2024-04-23] main(): Completed within [2.8670 sec].
+ [*] [2024-08-19] main(): Completed within [10.2520 sec].
 
 ```
 
@@ -236,6 +260,7 @@ ic| filename: '2023_12.json'
 
 
  [*] [2024-04-23] main(): Completed within [3.0585 sec].
+
 ```
 
 ## Tips
@@ -252,6 +277,8 @@ $ cat 2023_12.json | jq '.Vulnerability | length'
 
  - 2022.03 : ms_patch_tuesday_2.0
  - 2024.04 : ms_patch_tuesday_3.0
+ - 2022.07 : ms_patch_tuesday_3.1 (minor bug fix)
+ - 2024.08 : ms_patch_tuesday.4.0 (added CISA_KEV, action_required)
 
 ## CVRF API calls
  

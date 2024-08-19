@@ -22,6 +22,7 @@ from rich.table import Table
 
 data = {}
 base = 'https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/'
+cisa = 'https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json'
 hdrs = {'Accept': 'application/json'}
 
 desc = f'To get [yellow]summary of security updates and product families[/yellow] from [blue]MSRC[/blue].'
@@ -31,7 +32,7 @@ note = f'  [i][#8080FF]Get security updates from MSRC, formatted according to CV
 banner = f"""
    Zzzzz   |\      _,,,---,,_
            /,`.-'`'    -.  ;-;;,_   __author__ : [ [#FFBF00][i]zd[/i][/#FFBF00] ]
-          |,4-  ) )-,_..;\ (  `'-'  __year__   : [ [magenta][i]2024.04[/i][/magenta] ]
+          |,4-  ) )-,_..;\ (  `'-'  __year__   : [ [magenta][i]2024.08[/i][/magenta] ]
          '---''(_/--'  `-'\_)       __file__   : [ [i]{__file__}[/i] ]
 
          [ {desc} ]
@@ -71,6 +72,9 @@ def count_vulns(all_vulns, mode):
         for threat in vuln['Threats']:
             if threat['Type'] == 1:
                 description = threat['Description']['Value']
+                
+                #if description == 'DOS:N/A':
+                #    print(vuln.get('Title').get('Value'))
 
                 if mode == 'exploited' and 'Exploited:Yes' in description:
                     counter += 1
@@ -86,6 +90,16 @@ def count_vulns(all_vulns, mode):
 
     return {'counter': counter, 'cves': cves}
 
+def count_action(all_vulns):
+    action = 0
+    cves = []
+
+    for vuln in all_vulns:
+        for note in vuln['Notes']:
+            if note['Title'] == 'Customer Action Required' and note['Value'] == "Yes":
+                action += 1
+
+    return action
 
 
 def find_patch_tuesday(month, year):
@@ -161,19 +175,44 @@ def showChartSummary(tuesday):
     global data
     global verb
     global shCh
+    global cisa
 
     all_products = {}
     all_microsoft = data.get('ProductTree').get('Branch', [])
     all_items = all_microsoft[0].get('Items', [])
 
+    all_cisa = {}
+    jcisa = httpx.get(cisa)
+    if jcisa.status_code == httpx.codes.OK:
+        all_cisa = jcisa.json()
+    else:
+        rprint(f' [*] FAIL to access the JSON file at {cisa}\n')
+
+    if verb:
+        rprint(f'\n [*] [red]{all_cisa.get("title")}[/red] [ {all_cisa.get("catalogVersion")}/{all_cisa.get("count")} ]\n')
+        print(f'')
+
+
     for p in all_items:
         pname = p['Name']
-        icount = len(p['Items'])
+        icount = len(p['Items'])#ic(len(cve_cisa))
         all_products[pname] = icount
 
     title = data.get('DocumentTitle', 'Release not found').get('Value')
-    all_vulns = data.get('Vulnerability', [])
+    #all_vulns = data.get('Vulnerability', [])
+    all_vuln = data.get('Vulnerability', [])
+    all_vulns = [ v for v in all_vuln if v.get('Title').get('Value') ]
     
+    cve_cisa = []
+    for vuln in all_cisa['vulnerabilities']:
+        cve_cisa.append(vuln['cveID'])
+    #ic(len(cve_cisa))
+
+    cve_msrc = []
+    for vuln in all_vulns:
+        cve_msrc.append(vuln["CVE"])
+    #ic(len(cve_msrc))
+
     mark0 = "▏"
     mark1 = "▇"
     max_length = 50
@@ -194,8 +233,11 @@ def showChartSummary(tuesday):
     rprint(f'\t[-] High_likelihood    : [ [yellow]{high_likely["counter"]:>3}[/yellow] ]')
     exploited = count_vulns(all_vulns, 'exploited')
     rprint(f'\t[-] Exploited in_wild  : [ [yellow]{exploited["counter"]:>3}[/yellow] ]')
+    actions = count_action(all_vulns)
+    rprint(f'\t[-] Action_required    : [ [yellow]{actions:>3}[/yellow] ]')
 
-    rprint(f' [+] Product Families          : [ {len(all_products):>3} ]')
+    cisa_kev = sum(x in cve_msrc for x in cve_cisa)
+    rprint(f'\t[-] Found in CISA_KEV  : [ [red]{cisa_kev:>3}[/red] ]')
 
     vcat = {}
     vcat = {'c': critical, 'h': high_likely, 'e': exploited}
@@ -222,12 +264,18 @@ def showChartSummary(tuesday):
                 table = Table(title=title)
 
             table.add_column('CVE', style='red', no_wrap=True)
-            table.add_column('CVSS_Base', justify='center', style='cyan')
-            table.add_column('CVSS_Temporal', justify='center', style='magenta')
+            #table.add_column('CVSS_Base', justify='center', style='cyan')
+            #table.add_column('CVSS_Temporal', justify='center', style='magenta')
+            table.add_column('CVSS_Base/Temp', justify='center', style='magenta')
             table.add_column('Title_Value')
             for cve in d['cves']:
                 cv,vv,pv,tv = cve.split(' - ', 3)
-                table.add_row(cv,vv,pv,tv)
+                if cv in cve_cisa:
+                    cvss2 = f'B:{vv}/T:{pv} [K]'
+                else:
+                    cvss2 = f'B:{vv}/T:{pv}'
+                #table.add_row(cv,vv,pv,tv)
+                table.add_row(cv,cvss2,tv)
             console = Console()
             console.print(table)
             print(f'')
