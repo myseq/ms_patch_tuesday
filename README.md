@@ -45,7 +45,7 @@ $ deactivate
 
 ## Usages
 
-Show quick summary.
+Show quick summary including `Action_required` and CISA_KEV count.
 
 ```bash
 $ ./patch_tuesday.py
