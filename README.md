@@ -9,8 +9,8 @@ It quickly summarizes:
    - Any ***high severity*** vulnerabilities (CVSS_Base >= 8.5).
    - Any ***high likelihood*** vulnerabilities (contains 'Exploitation More Likely')
    - Any vulnerability that ***exploited in wild*** (Exploited:yes)
-   - Any ***CISA KEV*** vulnerabilities
-   - Number vulnerability that needs customer/user actions.
+   - Any ***CISA KEV*** vulnerabilities [new]
+   - Number of CVE that needs customer/user actions [new]
  - Monthly MS patched product families.
 
 Microsoft Security Response Center (MSRC) investigates all reports of security vulnerabilities affecting Microsoft products and services, and provides these updates as part of the ongoing effort to help you manage security risks and help keep your systems protected. 
